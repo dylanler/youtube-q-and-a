@@ -5,6 +5,7 @@ from langchain.document_loaders import TextLoader, YoutubeLoader
 import gradio as gr
 from youtube_transcript_api import YouTubeTranscriptApi
 from langchain.indexes import VectorstoreIndexCreator
+from langchain.llms import OpenAI
 
 OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
 
@@ -44,7 +45,7 @@ def answer_question(youtube_url, user_question):
     if previous_youtube_url == youtube_url:
         index = VectorstoreIndexCreator().from_loaders([loader])
         query = user_question
-        answer = index.query(query)
+        answer = index.query(llm=OpenAI(model="text-davinci-003"), question = query)
     else:
         f= open("temp.txt","w+")
         f.write(get_captions(youtube_url))
@@ -55,7 +56,7 @@ def answer_question(youtube_url, user_question):
         os.remove("temp.txt")
 
         query = user_question
-        answer = index.query(query)
+        answer = index.query(llm=OpenAI(model="text-davinci-003"), question = query)
 
     return answer
 
