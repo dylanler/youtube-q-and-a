@@ -6,7 +6,7 @@ import gradio as gr
 from youtube_transcript_api import YouTubeTranscriptApi
 from langchain.indexes import VectorstoreIndexCreator
 
-os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
 
 def get_video_id(url):
     video_id = None
