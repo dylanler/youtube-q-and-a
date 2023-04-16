@@ -5,3 +5,4 @@ openai
 numpy
 chromadb
 youtube_transcript_api
+tiktoken
