@@ -38,7 +38,7 @@ def answer_question(youtube_url, user_question):
     # For now, let's return the user question as output.
 
     f= open("temp.txt","w+")
-    f.write(get_captions("https://www.youtube.com/watch?v=mXjaob63K2w"))
+    f.write(get_captions(user_question))
     f.close() 
 
     loader = TextLoader("temp.txt")
@@ -59,7 +59,7 @@ iface = gr.Interface(
     ],
     outputs=gr.outputs.Textbox(),
     title="YouTube Video Question Answering",
-    description="Enter a YouTube URL and a question related to the video content. The app will return the answer if answer exist from the video."
+    description="Enter a YouTube URL and a question related to the video content. The app will return the answer if answer exists in the video."
 )
 if __name__ == "__main__":
     iface.launch()
