@@ -1,0 +1,6 @@
+gradio
+pytube
+langchain
+openai
+numpy
+chromadb
