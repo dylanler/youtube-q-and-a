@@ -33,12 +33,14 @@ def get_captions(url):
         print(e)
         return "Error. Could not fetch captions."
 
+
+
 def answer_question(youtube_url, user_question):
     # You can implement your logic here to process the video, transcribe it, and answer the user question.
     # For now, let's return the user question as output.
 
     f= open("temp.txt","w+")
-    f.write(get_captions(user_question))
+    f.write(get_captions(youtube_url))
     f.close() 
 
     loader = TextLoader("temp.txt")
