@@ -10,6 +10,7 @@ from langchain.llms import OpenAI
 OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
 
 previous_youtube_url = None
+index = None
 
 def get_video_id(url):
     video_id = None
@@ -42,8 +43,10 @@ def answer_question(youtube_url, user_question):
     # You can implement your logic here to process the video, transcribe it, and answer the user question.
     # For now, let's return the user question as output.
     global previous_youtube_url
+    global index
+    
     if previous_youtube_url == youtube_url:
-        index = VectorstoreIndexCreator().from_loaders([loader])
+        #index = VectorstoreIndexCreator().from_loaders([loader])
         query = user_question
         answer = index.query(llm=OpenAI(model="text-davinci-003"), question = query)
     else:
