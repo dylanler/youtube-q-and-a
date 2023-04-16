@@ -8,6 +8,8 @@ from langchain.indexes import VectorstoreIndexCreator
 
 OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
 
+previous_youtube_url = None
+
 def get_video_id(url):
     video_id = None
     if 'youtu.be' in url:
@@ -38,18 +40,22 @@ def get_captions(url):
 def answer_question(youtube_url, user_question):
     # You can implement your logic here to process the video, transcribe it, and answer the user question.
     # For now, let's return the user question as output.
+    global previous_youtube_url
+    if previous_youtube_url == youtube_url:
+        index = VectorstoreIndexCreator().from_loaders([loader])
+        query = user_question
+        answer = index.query(query)
+    else:
+        f= open("temp.txt","w+")
+        f.write(get_captions(youtube_url))
+        f.close() 
+        loader = TextLoader("temp.txt")
+    
+        index = VectorstoreIndexCreator().from_loaders([loader])
+        os.remove("temp.txt")
 
-    f= open("temp.txt","w+")
-    f.write(get_captions(youtube_url))
-    f.close() 
-
-    loader = TextLoader("temp.txt")
-
-    index = VectorstoreIndexCreator().from_loaders([loader])
-    os.remove("temp.txt")
-
-    query = user_question
-    answer = index.query(query)
+        query = user_question
+        answer = index.query(query)
 
     return answer
 
