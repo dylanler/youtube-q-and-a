@@ -42,6 +42,10 @@ The main components of the app are:
 - answer_question(youtube_url, user_question): This is the main function that processes the user's input, fetches the video captions, creates an index using -langchain, and queries the OpenAI GPT model to answer the user's question.
 - The Gradio interface is used to create a user-friendly web interface for the app. The iface.launch() command starts the app and opens it in your default web browser.
 
+## Demo
+
+https://user-images.githubusercontent.com/9219358/235098791-f2137de5-11c9-4913-8561-1fb81dc12acf.mp4
+
 ### Troubleshooting
 If you encounter any issues with fetching captions, make sure that the YouTube video has English captions available. If you encounter any issues with the OpenAI API, make sure that your API key is valid and you have not exceeded your usage limits.
 
