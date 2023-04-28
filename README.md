@@ -1,4 +1,4 @@
-# YouTube Video Question Answering App
+### YouTube Video Question Answering App
 
 This is a Python application that allows users to ask questions related to the content of a YouTube video and receive answers based on the video's captions. The application uses OpenAI's GPT model to process the captions and answer the user's question.
 
