@@ -31,8 +31,10 @@ python app.py
 ```
 
 
-The app will launch in your web browser. Enter a YouTube URL and a question related to the video content. The app will return the answer if it exists in the video.
-Code Overview
+4. The app will launch in your web browser. Enter a YouTube URL and a question related to the video content. The app will return the answer if it exists in the video.
+
+
+## Code Overview
 The main components of the app are:
 
 - get_video_id(url): This function extracts the video ID from a YouTube URL.
