@@ -1,29 +1,34 @@
-YouTube Video Question Answering App
+# YouTube Video Question Answering App
+
 This is a Python application that allows users to ask questions related to the content of a YouTube video and receive answers based on the video's captions. The application uses OpenAI's GPT model to process the captions and answer the user's question.
 
-Dependencies
+## Dependencies
+
 To use this app, you will need the following libraries installed:
 
-openai
-pytube
-gradio
-langchain
-youtube_transcript_api
+- openai
+- pytube
+- gradio
+- langchain
+- youtube_transcript_api
 
 You can install these libraries using pip:
 
-Copy code
 pip install openai pytube gradio langchain youtube_transcript_api
-Usage
-Obtain an API key for OpenAI's GPT model.
-Set the OPENAI_API_KEY environment variable with your API key:
-bash
-Copy code
+
+
+## Usage
+
+1. Obtain an API key for OpenAI's GPT model.
+2. Set the `OPENAI_API_KEY` environment variable with your API key:
+
+```bash
 export OPENAI_API_KEY=your_api_key_here
-Run the application:
-bash
-Copy code
+
+3. Run the application:
+
 python app.py
+
 The app will launch in your web browser. Enter a YouTube URL and a question related to the video content. The app will return the answer if it exists in the video.
 Code Overview
 The main components of the app are:
@@ -38,3 +43,4 @@ If you encounter any issues with fetching captions, make sure that the YouTube v
 
 License
 This project is licensed under the MIT License. See the LICENSE file for details.
+
